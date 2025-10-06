@@ -73,6 +73,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
           script: |
             echo "Deploying new container version: ${{ env.TAG }}"
             # Pull the new image and restart the service
