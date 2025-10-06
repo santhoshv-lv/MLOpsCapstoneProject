@@ -1,0 +1,1 @@
+[2025-10-04T13:56:46.953+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: retail_mlops_data_pipeline.create_data_directory manual__2025-10-04T13:51:42.229908+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

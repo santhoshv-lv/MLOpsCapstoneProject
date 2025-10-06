@@ -1,68 +1,165 @@
-Retail Store & Customer Insights: An MLOps Capstone Project
-Submitted by: santhosh v
+# MLOPS Capstone Project: Retail Store & Customer Insights
 
-1. Executive Summary
-This report details the development of an end-to-end analytics and machine learning pipeline for a retail chain. The project's primary goal was to leverage daily sales data to understand store performance and customer behavior. The pipeline successfully processed raw data, engineered key features, built a customer segmentation model, and deployed actionable insights via a FastAPI-powered API. The key findings include the identification of top-performing stores, an understanding of seasonal sales trends, and the classification of customers into high-value and loyal segments for targeted marketing.
+This repository contains a complete, end-to-end MLOps pipeline for a retail chain. The goal is to automate the analysis of daily sales data, build a customer segmentation model (K-Means), and deploy actionable insights via a high-performance FastAPI service and a user-friendly Streamlit dashboard.
 
-2. Project Objective
-The retail chain aims to better understand store performance and customer behavior to steer targeted marketing campaigns and inventory strategy. The project's objective was to build a comprehensive analytics pipeline to:
+The project covers all phases, from processing daily sales data to supporting CI/CD workflows.
 
-Process and analyze daily sales data across stores and regions.
+---
 
-Perform RFM-based customer loyalty analysis.
+## Project Architecture & Components
 
-Build machine learning models for customer segmentation.
+The system is built on a robust MLOps architecture:
 
-Deploy insights as APIs for business dashboards.
+| Component               | Tool / Technology      | Purpose                                                                                  |
+|-------------------------|-----------------------|------------------------------------------------------------------------------------------|
+| Orchestration / ETL     | Apache Airflow        | Automates data ingestion (Kaggle API), cleaning, RFM calculation, and model training.    |
+| Model Serving Layer     | FastAPI               | Loads model assets and serves real-time KPIs and predictions via high-performance APIs.  |
+| Visualization / Dashboard | Streamlit           | Consumes FastAPI endpoints for user-friendly, interactive dashboards.                    |
+| Machine Learning        | scikit-learn (K-Means)| Builds the customer segmentation model.                                                  |
 
-Surface actionable insights on top-performing stores, loyal customers, and seasonal patterns for business decision-making.
+---
 
-3. Data Processing & Analysis
-The project began with the ingestion and processing of the provided customer shopping dataset.
+## Setup and Installation
 
-Data Ingestion & Cleaning: The raw data was loaded, and the invoice_date column was cleaned and formatted to the correct datetime format. No null values were present, which simplified the cleaning process.
+### Prerequisites
 
-Feature Engineering: New features were created to support the analysis:
+You must have the following installed and configured:
 
-Total Price: Calculated as quantity * price to represent the total revenue for each transaction. This serves as a proxy for profitability, as no discount data was available in the dataset.
+- **Python 3.10+** (in a Virtual Environment)
+- **Apache Airflow** (Installed in your `airflow_venv`)
+- **Kaggle API** (Installed via `pip install kaggle` and configured with credentials in your environment).
 
-Time-Series Features: invoice_year, invoice_month, and invoice_quarter were extracted from the invoice date for seasonal trend analysis.
+### A. Environment Setup
 
-Key Findings:
+Ensure all necessary dependencies are installed in your active virtual environment (`airflow_venv`):
 
-Store Performance: Total revenue was analyzed across all shopping_mall locations to identify the top-performing stores.
+```bash
+# Activate your environment
+source airflow_venv/bin/activate
 
-Seasonal Trends: A time-series analysis of monthly sales revealed potential seasonal patterns in customer purchasing behavior.
+# Install all required Python packages for the pipeline
+pip install -r requirements.txt
 
-Payment Method: The distribution of payment_method showed the most common ways customers pay.
+# Install packages for the dashboard
+pip install streamlit matplotlib seaborn
+```
 
-4. Customer Segmentation
-To understand customer behavior, an RFM-based segmentation model was developed.
+### B. Directory Structure
 
-Methodology:
+Ensure your Airflow and Project directories are set up correctly:
 
-RFM Calculation: Recency, Frequency, and Monetary scores were computed for each customer_id.
+| Component       | Host Path                | Files                                  |
+|-----------------|-------------------------|----------------------------------------|
+| Airflow DAGs    | `~/airflow/dags/`       | `retail_mlops_data_pipeline.py`        |
+| ML Project      | `~/MLOpsCapstoneProject/`| `app.py`, `dashboard.py`, `requirements.txt` |
+| Shared Data     | `/root/airflow/data/`   | **CRITICAL:** Location for all assets (`.csv`, `.joblib`). |
 
-Clustering: The K-Means clustering algorithm was applied to the scaled RFM data. The Elbow Method was used to determine the optimal number of clusters for segmentation.
+---
 
-Cluster Profiles: The model identified three distinct customer segments:
+## Running the End-to-End Pipeline
 
-High-Value/Loyal Customers: Characterized by high frequency and high monetary value. These are the most valuable customers who should be targeted for loyalty programs.
+### Step 1: Run the Automated Data Pipeline (Airflow)
 
-Recent/Frequent Customers: These customers shop frequently but have a lower monetary value. They are ideal for up-selling and cross-selling campaigns.
+This step automates the ETL and trains the model.
 
-New/One-Time Customers: Defined by high recency but low frequency and monetary value. The goal for this segment is to convert them into repeat customers.
+1. **Set Environment Variables:**  
+   Ensure your scheduler terminal has the necessary environment variables exported:
 
-5. MLOps Pipeline & Deployment
-The final phase involved operationalizing the insights through an API and establishing a framework for MLOps best practices.
+    ```bash
+    export AIRFLOW_HOME=~/airflow
+    export KAGGLE_USERNAME="..."
+    export KAGGLE_KEY="..."
+    ```
 
+2. **Start Scheduler:**
 
-API Development: A FastAPI application was built to deploy the insights as APIs for business dashboards. Key endpoints were created to serve data on store performance, top customers, sales trends, and customer segments.
+    ```bash
+    airflow scheduler
+    ```
 
-ML Model Deployment: The trained K-Means model was integrated into the API to classify new customers in real-time.
+3. **Trigger DAG:**
 
+    - Access the Airflow UI (`http://localhost:8080`).
+    - Find the `retail_mlops_data_pipeline` DAG and manually trigger a new run.
 
-Continuous Improvement: Although not physically built, a conceptual framework for a CI/CD pipeline, monitoring, and automated model retraining was established to ensure the system remains reliable and the model's performance doesn't degrade over time.
+4. **Verification:**  
+   Wait for all tasks to complete successfully. This process automatically downloads the data, performs RFM, trains the K-Means model, and saves the final assets.
 
-6. Conclusion
-The project successfully delivered a robust analytics and machine learning pipeline that provides clear, actionable insights for the retail chain. By segmenting customers and analyzing store performance, the business can now implement data-driven strategies for marketing, inventory management, and customer relationship management. This project serves as a strong foundation for a scalable and maintainable MLOps system.
+---
+
+### Step 2: Run the API Serving Layer (FastAPI)
+
+This step deploys the service that serves your insights and model predictions.
+
+1. **Start API:**  
+   In a new terminal session, navigate to the project directory and run:
+
+    ```bash
+    uvicorn app:app --reload --host 0.0.0.0 --port 8000
+    ```
+
+2. **Verification:**  
+   Access the documentation: [http://<YOUR_IP_ADDRESS>:8000/docs](http://<YOUR_IP_ADDRESS>:8000/docs)  
+   Test the endpoints for Store Performance, Top Customers, Sales Trends, and Customer Segment Prediction.
+
+---
+
+### Step 3: Run the User Dashboard (Streamlit)
+
+This launches the visualization layer for stakeholders.
+
+1. **Start Dashboard:**  
+   In a third terminal session, navigate to the project directory and run:
+
+    ```bash
+    streamlit run dashboard.py
+    ```
+
+2. **Verification:**  
+   Open the URL provided by Streamlit (usually [http://localhost:8501](http://localhost:8501)) to see the live charts and test real-time customer segmentation.
+
+---
+
+##  CI/CD & MLOPS Practices
+
+The CI/CD pipeline is defined in `.github/workflows/ci-cd.yml`:
+
+- **Continuous Integration (CI):**  
+  Runs automatic tests and code analysis on every Pull Request to ensure code quality.
+
+- **Continuous Deployment (CD):**  
+  Automatically builds the Docker image and deploys the service using SSH upon successful merging to the main branch.
+
+- **Retraining Loop:**  
+  The Airflow DAG is scheduled to run daily, ensuring the model is constantly retrained and updated assets are saved for the FastAPI app to consume, closing the MLOps loop.
+
+---
+
+## Repository Structure (Suggested)
+
+```
+MLOpsCapstoneProject/
+├── app.py
+├── dashboard.py
+├── requirements.txt
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+├── data/
+│   ├── ... (assets & processed data)
+├── airflow_venv/
+│   └── ... (virtual environment files)
+└── README.md
+```
+
+---
+
+## Contributions
+
+PRs and suggestions are welcome! Please ensure all code passes CI before submitting a PR.
+
+---
+
+## License
+
+[MIT](LICENSE)
