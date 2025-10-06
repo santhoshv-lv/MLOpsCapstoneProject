@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/MLOps%20Capstone%20Retail/mlruns/341856712451617097/e8cfe73208b14c29b88007490182607f/artifacts
+end_time: 1759497023280
+entry_point_name: ''
+experiment_id: '341856712451617097'
+lifecycle_stage: active
+run_id: e8cfe73208b14c29b88007490182607f
+run_name: efficient-grouse-685
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759497023225
+status: 3
+tags: []
+user_id: akilanbimby.a.lv

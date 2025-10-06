@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/MLOps%20Capstone%20Retail/mlruns/341856712451617097/6414c61697594d0bae47022cd9fec7d3/artifacts
+end_time: 1759497045617
+entry_point_name: ''
+experiment_id: '341856712451617097'
+lifecycle_stage: active
+run_id: 6414c61697594d0bae47022cd9fec7d3
+run_name: smiling-mink-740
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759497045568
+status: 3
+tags: []
+user_id: akilanbimby.a.lv
