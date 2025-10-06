@@ -6,7 +6,7 @@ import seaborn as sns
 
 # --- CONFIGURATION ---
 # Replace with your public IP or localhost address
-API_URL = "http://54.82.75.213:8000" 
+API_URL = "http://54.82.75.213:8090" 
 
 st.set_page_config(layout="wide", page_title="Retail Insights Dashboard")
 
