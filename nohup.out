@@ -1,0 +1,266 @@
+INFO:     Started server process [4452]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+Data processing and model training complete on startup.
+INFO:     167.103.54.84:43583 - "GET /docs HTTP/1.1" 200 OK
+INFO:     167.103.54.84:43583 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     167.103.54.84:9471 - "GET /docs HTTP/1.1" 200 OK
+INFO:     167.103.54.84:9471 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     167.103.54.84:44095 - "GET /stores/performance HTTP/1.1" 200 OK
+INFO:     167.103.54.84:44222 - "GET /customers/top HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     64.62.156.52:12948 - "GET / HTTP/1.1" 404 Not Found
+INFO:     64.62.156.54:64575 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     44.220.188.62:39596 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     140.82.49.72:53136 - "GET / HTTP/1.1" 404 Not Found
+INFO:     140.82.49.72:53136 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     140.82.49.72:53144 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     140.82.49.72:53150 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     222.112.53.206:43376 - "GET / HTTP/1.0" 404 Not Found
+INFO:     45.79.207.129:45524 - "GET / HTTP/1.1" 404 Not Found
+INFO:     103.203.57.20:54710 - "GET / HTTP/1.1" 404 Not Found
+INFO:     185.247.137.145:50357 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     64.227.142.247:58622 - "GET / HTTP/1.1" 404 Not Found
+INFO:     64.227.142.247:58636 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     3.130.96.91:42042 - "GET / HTTP/1.1" 404 Not Found
+INFO:     3.130.96.91:39786 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     161.35.145.35:52006 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     178.128.84.33:50628 - "GET / HTTP/1.1" 404 Not Found
+INFO:     178.128.84.33:50632 - "GET /login HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     27.61.63.234:38166 - "GET /docs HTTP/1.1" 200 OK
+INFO:     27.61.63.234:38166 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     27.61.63.234:33360 - "GET /sales/monthly-trends HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1133, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 123, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 109, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 387, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/app.py", line 84, in get_monthly_sales_trends
+    monthly_sales = df.groupby(['invoice_year', 'invoice_month'])['total_price'].sum().reset_index()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/pandas/core/frame.py", line 9210, in groupby
+    return DataFrameGroupBy(
+           ^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/pandas/core/groupby/groupby.py", line 1331, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/pandas/core/groupby/grouper.py", line 1043, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'invoice_year'
+INFO:     27.61.63.234:42100 - "GET /stores/performance HTTP/1.1" 200 OK
+INFO:     45.156.128.45:32777 - "GET / HTTP/1.1" 404 Not Found
+INFO:     27.61.63.234:40063 - "GET /sales/monthly-trends HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1133, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 123, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 109, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 387, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/app.py", line 84, in get_monthly_sales_trends
+    monthly_sales = df.groupby(['invoice_year', 'invoice_month'])['total_price'].sum().reset_index()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/pandas/core/frame.py", line 9210, in groupby
+    return DataFrameGroupBy(
+           ^^^^^^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/pandas/core/groupby/groupby.py", line 1331, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ^^^^^^^^^^^^
+  File "/root/MLOpsCapstoneProject/venv/lib/python3.12/site-packages/pandas/core/groupby/grouper.py", line 1043, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'invoice_year'
+INFO:     142.93.254.206:46458 - "GET / HTTP/1.1" 404 Not Found
+INFO:     64.62.197.47:11546 - "GET / HTTP/1.1" 404 Not Found
+INFO:     64.62.197.56:12231 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     64.62.197.50:11447 - "GET /?format=json HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     167.103.54.116:14216 - "GET / HTTP/1.1" 404 Not Found
+INFO:     167.103.54.116:14216 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     180.149.125.163:55391 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     216.180.246.20:53850 - "GET / HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:42930 - "GET /manage/account/login HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:37432 - "GET /admin/index.html HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:39138 - "GET /index.html HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     216.180.246.20:46192 - "GET /%2BCSCOE%2B/logon.html HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:34482 - "GET /cgi-bin/login.cgi HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:34234 - "GET /login.htm HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:54782 - "GET /login.html HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:58912 - "GET /login.jsp HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:58122 - "GET /login HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:33120 - "GET /doc/index.html HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:48848 - "GET /remote/login HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:54940 - "GET //admin/login.asp HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:37102 - "GET /web/ HTTP/1.1" 404 Not Found
+INFO:     216.180.246.20:44644 - "GET //webpages/login.html HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     45.43.33.210:47183 - "GET / HTTP/1.1" 404 Not Found
+INFO:     180.149.126.11:56275 - "GET /c/ HTTP/1.1" 404 Not Found
+INFO:     3.134.148.59:46188 - "GET / HTTP/1.1" 404 Not Found
+INFO:     3.134.148.59:39952 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     64.62.156.182:6002 - "GET / HTTP/1.1" 404 Not Found
+INFO:     64.62.156.183:41115 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     64.62.156.182:48991 - "GET /?format=json HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     87.120.222.241:51842 - "GET / HTTP/1.1" 404 Not Found
+INFO:     52.248.43.121:42614 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     170.64.148.80:50288 - "GET / HTTP/1.1" 404 Not Found
+INFO:     170.64.148.80:50302 - "GET /login HTTP/1.1" 404 Not Found
+INFO:     20.221.72.241:55184 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     118.123.1.37:43848 - "GET /chs/js/lang_zh_tw.js HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:43844 - "GET /customer/js/lang_zh_tw.js HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:43842 - "GET /login/stylesheets/theme.css HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:43838 - "GET / HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:43888 - "GET /index.php HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:44016 - "GET /stylesheets/theme.css HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:44012 - "GET /ips/index.php HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:44038 - "GET /public/stylesheets/theme.css HTTP/1.1" 404 Not Found
+INFO:     118.123.1.37:43840 - "GET /index.php HTTP/1.1" 404 Not Found
+INFO:     142.93.115.5:45488 - "GET /aaa9 HTTP/1.1" 404 Not Found
+INFO:     142.93.115.5:45490 - "GET /aab8 HTTP/1.1" 404 Not Found
+INFO:     142.93.115.5:45498 - "GET / HTTP/1.1" 404 Not Found
+INFO:     194.187.178.96:24166 - "GET / HTTP/1.1" 404 Not Found
+INFO:     194.187.178.178:24168 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     207.154.253.110:44156 - "GET / HTTP/1.1" 404 Not Found
+INFO:     207.154.253.110:44160 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     3.134.148.59:46482 - "GET / HTTP/1.1" 404 Not Found
+INFO:     3.134.148.59:42014 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     3.137.73.221:52356 - "GET / HTTP/1.1" 404 Not Found
+INFO:     3.137.73.221:53416 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     136.226.253.20:29108 - "GET /docs HTTP/1.1" 200 OK
+INFO:     136.226.253.20:29108 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     136.226.253.20:29109 - "GET / HTTP/1.1" 404 Not Found
+INFO:     45.156.129.134:42997 - "GET / HTTP/1.1" 404 Not Found
