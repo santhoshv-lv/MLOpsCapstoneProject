@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      - name: 🧪 Run Unit Tests (Conceptual)
+      - name: Run Unit Tests (Conceptual)
         # In a full project, you'd execute tests for app.py here
         run: echo "Skipping formal tests, but code analysis is passing." 
 
@@ -61,7 +61,7 @@ jobs:
             ${{ env.DOCKER_IMAGE }}:latest
             ${{ env.DOCKER_IMAGE }}:${{ env.TAG }}
       
-      - name: 🚀 Trigger Remote Deployment (Continuous Deployment)
+      - name: Trigger Remote Deployment (Continuous Deployment)
         # In a real scenario, this step would automatically deploy the new container.
         # This example uses a simple SSH command placeholder.
         uses: appleboy/ssh-action@v1.0.1
