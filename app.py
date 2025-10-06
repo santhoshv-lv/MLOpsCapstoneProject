@@ -1,4 +1,3 @@
-#application code
 from fastapi import FastAPI
 import pandas as pd
 from typing import List, Dict
