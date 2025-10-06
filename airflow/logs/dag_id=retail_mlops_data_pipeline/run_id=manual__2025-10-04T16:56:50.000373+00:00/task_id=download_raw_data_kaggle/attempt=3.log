@@ -1,0 +1,45 @@
+[2025-10-04T17:03:55.535+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-04T17:03:55.548+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: retail_mlops_data_pipeline.download_raw_data_kaggle manual__2025-10-04T16:56:50.000373+00:00 [queued]>
+[2025-10-04T17:03:55.553+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: retail_mlops_data_pipeline.download_raw_data_kaggle manual__2025-10-04T16:56:50.000373+00:00 [queued]>
+[2025-10-04T17:03:55.553+0000] {taskinstance.py:2303} INFO - Starting attempt 3 of 4
+[2025-10-04T17:03:55.568+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): download_raw_data_kaggle> on 2025-10-04 16:56:50.000373+00:00
+[2025-10-04T17:03:55.576+0000] {standard_task_runner.py:63} INFO - Started process 11837 to run task
+[2025-10-04T17:03:55.579+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'retail_mlops_data_pipeline', 'download_raw_data_kaggle', 'manual__2025-10-04T16:56:50.000373+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/retail_mlops_data_pipeline.py', '--cfg-path', '/tmp/tmp6zgd4grv']
+[2025-10-04T17:03:55.581+0000] {standard_task_runner.py:91} INFO - Job 30: Subtask download_raw_data_kaggle
+[2025-10-04T17:03:55.619+0000] {task_command.py:426} INFO - Running <TaskInstance: retail_mlops_data_pipeline.download_raw_data_kaggle manual__2025-10-04T16:56:50.000373+00:00 [running]> on host ip-172-31-17-35.ec2.internal
+[2025-10-04T17:03:55.672+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='retail_mlops_data_pipeline' AIRFLOW_CTX_TASK_ID='download_raw_data_kaggle' AIRFLOW_CTX_EXECUTION_DATE='2025-10-04T16:56:50.000373+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-04T16:56:50.000373+00:00'
+[2025-10-04T17:03:55.672+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-04T17:03:55.683+0000] {logging_mixin.py:188} INFO - Starting download of mehmettahiraslan/customer-shopping-dataset...
+[2025-10-04T17:03:55.684+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-04T17:03:55.684+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/root/airflow_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/airflow_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/airflow_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/airflow_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/airflow_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/airflow/dags/retail_mlops_data_pipeline.py", line 47, in download_data
+    subprocess.run([
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'kaggle'
+[2025-10-04T17:03:55.690+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=retail_mlops_data_pipeline, task_id=download_raw_data_kaggle, execution_date=20251004T165650, start_date=20251004T170355, end_date=20251004T170355
+[2025-10-04T17:03:55.706+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 30 for task download_raw_data_kaggle ([Errno 2] No such file or directory: 'kaggle'; 11837)
+[2025-10-04T17:03:55.751+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-10-04T17:03:55.768+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-04T17:03:55.769+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
