@@ -35,6 +35,10 @@ jobs:
   deploy_docker:
     needs: build_and_test
     runs-on: ubuntu-latest
+    # environment declaration
+    environment:
+      name: prod 
+
     # This step only runs if the build_and_test job succeeds
     if: success() && github.ref == 'refs/heads/main'
     
