@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/MLOps%20Capstone%20Retail/mlruns/341856712451617097/ada5d7d415454df28222dbd8cf9b0ad5/artifacts
+end_time: 1759497069741
+entry_point_name: ''
+experiment_id: '341856712451617097'
+lifecycle_stage: active
+run_id: ada5d7d415454df28222dbd8cf9b0ad5
+run_name: omniscient-cub-223
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759497069378
+status: 3
+tags: []
+user_id: akilanbimby.a.lv

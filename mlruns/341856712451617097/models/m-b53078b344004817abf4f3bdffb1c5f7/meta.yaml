@@ -1,0 +1,10 @@
+artifact_location: file:///D:/MLOps%20Capstone%20Retail/mlruns/341856712451617097/models/m-b53078b344004817abf4f3bdffb1c5f7/artifacts
+creation_timestamp: 1759497308559
+experiment_id: '341856712451617097'
+last_updated_timestamp: 1759497324161
+model_id: m-b53078b344004817abf4f3bdffb1c5f7
+model_type: null
+name: model
+source_run_id: ed7c198ac5434b7a97a546935fb13bcf
+status: 2
+status_message: null
