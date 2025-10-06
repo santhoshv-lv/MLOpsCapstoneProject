@@ -14,8 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . $APP_HOME
 
-# Copy data files into container
-COPY app/data $DATA_DIR
 
 # Expose FastAPI port
 EXPOSE 8090
