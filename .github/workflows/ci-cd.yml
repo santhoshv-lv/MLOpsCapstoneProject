@@ -75,6 +75,6 @@ jobs:
             docker pull ${{ env.DOCKER_IMAGE }}:latest
             docker stop retail_api || true
             docker rm retail_api || true
-            # Note: You must ensure the data folder is mounted here for production!
+            # Note:  data folder is mounted prod
             # Example: -v /path/to/airflow/data:/app/data
-            docker run -d --name retail_api -p 8000:8000 ${{ env.DOCKER_IMAGE }}:latest
+            docker run -d --name retail_api -p 8090:8090 ${{ env.DOCKER_IMAGE }}:latest
