@@ -1,17 +1,24 @@
-# Use the official Python base image
+# Use the official Python slim image
 FROM python:3.12-slim
 
 # Set environment variables
-ENV PYTHONUNBUFFERED 1
-ENV APP_HOME /app
+ENV PYTHONUNBUFFERED=1
+ENV APP_HOME=/app
+ENV DATA_DIR=/root/airflow/data
 WORKDIR $APP_HOME
 
-# Copy the requirements file and install dependencies
+# Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire application code
+# Copy application code
 COPY . $APP_HOME
 
-# Define the command to run the application (uvicorn)
-# Ensure the host/port match your setup. 0.0.0.0 makes it accessible outside the container.
+# Copy data files into container
+COPY app/data $DATA_DIR
+
+# Expose FastAPI port
+EXPOSE 8090
+
+# Run FastAPI using Uvicorn
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8090"]
